@@ -3151,3 +3151,11 @@ span.text-alert {
     text-align: center;
     font-weight: bold;
 }
+
+span.fa-thumb-styling.fa.fa-thumbs-up {
+    font-size: 28px;
+}
+span.fa-thumb-styling.fa.fa-thumbs-down {
+    font-size: 28px;
+    color: red;
+}

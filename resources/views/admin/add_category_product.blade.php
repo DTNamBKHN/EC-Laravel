@@ -7,11 +7,19 @@
                     Thêm danh mục sản phẩm
                 </header>
                 <div class="panel-body">
+                    <?php
+                        $message = Session::get('message');
+                        if($message){
+                            echo '<span class="text-alert">'.$message.'</span>';
+                            Session::put('message', null);
+                        }
+                    ?>
                     <div class="position-center">
-                        <form role="form">
+                        <form role="form" action="{{URL::to('/save-category-product')}}" method="post">
+                            {{ csrf_field() }}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên danh mục</label>
-                            <input type="email" name="category_product_name" class="form-control" id="exampleInputEmail1"
+                            <input type="text" name="category_product_name" class="form-control" id="exampleInputEmail1"
                             placeholder="Tên danh mục">
                         </div>
                         <div class="form-group">
@@ -21,12 +29,12 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Hiển thị</label>
-                                <select class="form-control input-sm m-bot15">
-                                    <option>Ẩn</option>
-                                    <option>Hiển thị</option>
+                                <select name="category_product_status" class="form-control input-sm m-bot15">
+                                    <option value="0">Ẩn</option>
+                                    <option value="1">Hiển thị</option>
                                 </select>
                         </div>
-                        <button type="submit" name="add_category_product" class="btn btn-info">Thêm</button>
+                        <button type="submit" name="add_category_product" class="btn btn-info">Thêm danh mục</button>
                     </form>
                     </div>
 
