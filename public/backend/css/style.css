@@ -3159,3 +3159,6 @@ span.fa-thumb-styling.fa.fa-thumbs-down {
     font-size: 28px;
     color: red;
 }
+a.active.styling-edit {
+    font-size: 20px;
+}
