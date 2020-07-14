@@ -5,8 +5,12 @@
         <div class="breadcrumbs">
             <ol class="breadcrumb">
               <li><a href="{{ URL::to('/') }}">Trang chủ</a></li>
-              <li class="active">Giỏ hàng của bạn</li>
+              <li class="active">Thanh toán giỏ hàng</li>
             </ol>
+        </div>
+
+        <div class="review-payment">
+            <h2>Xem lại giỏ hàng</h2>
         </div>
         <div class="table-responsive cart_info">
             <?php
@@ -63,39 +67,17 @@
                 </tbody>
             </table>
         </div>
+        <div class="payment-options">
+                <span>
+                    <label><input name="payment_option" value="1" type="checkbox"> Trả bằng thẻ ATM</label>
+                </span>
+                <span>
+                    <label><input name="payment_option" value="2" type="checkbox"> Nhận tiền mặt</label>
+                </span>
+                <span>
+                    <label><input name="payment_option" value="3" type="checkbox"> Thanh toán thẻ ghi nợ</label>
+                </span>
+            </div>
     </div>
 </section> <!--/#cart_items-->
-<section id="do_action">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="total_area">
-                    <ul>
-                        <li>Tổng <span>{{ Cart::total().' '.'VNĐ' }}</span></li>
-                        <li>Thuế <span>{{ Cart::tax().' '.'VNĐ' }}</span></li>
-                        <li>Phí vận chuyển <span>Free</span></li>
-                        <li>Thành tiền <span>{{ Cart::total().' '.'VNĐ' }}</span></li>
-                    </ul>
-                    <?php
-                        $customer_id  = Session::get('customer_id');
-                        $shipping_id  = Session::get('shipping_id');
-                        if($customer_id != NULL && $shipping_id == NULL){
-                    ?>
-                            <a class="btn btn-default check_out" href="{{ URL::to('/checkout') }}">Thanh toán</a>
-                    <?php
-                        }else if($customer_id != NULL && $shipping_id != NULL){
-                    ?>
-                            <a class="btn btn-default check_out" href="{{ URL::to('/payment') }}">Thanh toán</a>
-                    <?php
-                        }else{
-                    ?>
-                            <a class="btn btn-default check_out" href="{{ URL::to('/login-checkout') }}">Thanh toán</a>
-                    <?php
-                        }
-                    ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!--/#do_action-->
 @endsection
