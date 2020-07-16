@@ -83,7 +83,7 @@
                     ?>
                             <a class="btn btn-default check_out" href="{{ URL::to('/checkout') }}">Thanh toán</a>
                     <?php
-                        }else if($customer_id != NULL && $shipping_id != NULL){
+                        }elseif($customer_id != NULL && $shipping_id != NULL){
                     ?>
                             <a class="btn btn-default check_out" href="{{ URL::to('/payment') }}">Thanh toán</a>
                     <?php

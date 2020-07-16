@@ -67,17 +67,22 @@
                 </tbody>
             </table>
         </div>
-        <div class="payment-options">
-                <span>
-                    <label><input name="payment_option" value="1" type="checkbox"> Trả bằng thẻ ATM</label>
-                </span>
-                <span>
-                    <label><input name="payment_option" value="2" type="checkbox"> Nhận tiền mặt</label>
-                </span>
-                <span>
-                    <label><input name="payment_option" value="3" type="checkbox"> Thanh toán thẻ ghi nợ</label>
-                </span>
+        <h4 style="margin: 40px 0; font-size: 20px;">Chọn hình thức thanh toán</h4>
+        <form method="POST" action={{ URL::to('/order-place') }}>
+            {{ csrf_field() }}
+            <div class="payment-options">
+                    <span>
+                        <label><input name="payment_option" value="1" type="checkbox"> Trả bằng thẻ ATM</label>
+                    </span>
+                    <span>
+                        <label><input name="payment_option" value="2" type="checkbox"> Nhận tiền mặt</label>
+                    </span>
+                    <span>
+                        <label><input name="payment_option" value="3" type="checkbox"> Thanh toán thẻ ghi nợ</label>
+                    </span>
+                    <input type="submit" value="Đặt hàng" name="send_order_place" class="btn btn-primary btn-small">
             </div>
+        </form>
     </div>
 </section> <!--/#cart_items-->
 @endsection
