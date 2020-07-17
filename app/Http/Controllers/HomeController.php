@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\support\facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 session_start();
 class HomeController extends Controller
 {
@@ -40,5 +41,20 @@ class HomeController extends Controller
         $search_product = DB::table('tbl_product')->where('product_name','like','%'.$keywords.'%')->get();
         return view('pages.sanpham.search')->with('category',$cate_product)->with('brand',$brand_product)
         ->with('search_product',$search_product);
+    }
+    public function send_mail(){
+         //send mail
+         $to_name = "Do Thanh Nam";
+         $to_email = "dothanhnamhust@gmail.com";//send to this email
+
+         $data = array("name"=>"Mail từ tài khoản Khách hàng","body"=>'Mail gửi về vấn đề hàng hóa'); //body of mail.blade.php
+
+         Mail::send('pages.send_mail',$data,function($message) use ($to_name,$to_email){
+             $message->to($to_email)->subject('Test thử gửi mail google');//send this mail with subject
+             $message->from($to_email,$to_name);//send from this mail
+         });
+         return redirect('/')->with('message','');
+         //--send mail
+
     }
 }

@@ -28,6 +28,11 @@
                             placeholder="Mô tả danh mục"></textarea>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputPassword1">Từ khóa thương hiệu</label>
+                            <textarea style="resize: none" rows="8" class="form-control" name="brand_product_keywords" id="exampleInputPassword1"
+                            placeholder="Mô tả danh mục"></textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Hiển thị</label>
                                 <select name="brand_product_status" class="form-control input-sm m-bot15">
                                     <option value="0">Ẩn</option>

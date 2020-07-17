@@ -33,7 +33,7 @@ class CategoryProduct extends Controller
     public function save_category_product(Request $request){
         $this->AuthLogin();
         $data = array();
-        $data['category_name'] = $request->category_product_name;
+        $data['category_name'] = $request->category_product_name;//ben phai la cot trong bang csdl,ben trai la name trong phan view
         $data['meta_keywords'] = $request->category_product_keywords;
         $data['category_desc'] = $request->category_product_desc;
         $data['category_status'] = $request->category_product_status;

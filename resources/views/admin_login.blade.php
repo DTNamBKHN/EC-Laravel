@@ -33,13 +33,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     ?>
         <form action="{{URL::to('/admin-dashboard')}}" method="post">
             {{ csrf_field() }}
-			<input type="text" class="ggg" name="admin_email" placeholder="Điền email" required="">
-			<input type="password" class="ggg" name="admin_password" placeholder="Điền password" required="">
+            @foreach ( $errors->all() as $val)
+            <ul>
+                <li>{{ $val }}</li>
+            </ul>
+            @endforeach
+			<input type="text" class="ggg" name="admin_email" placeholder="Điền email">
+			<input type="password" class="ggg" name="admin_password" placeholder="Điền password">
 			<span><input type="checkbox" />Nhớ đăng nhập</span>
 			<h6><a href="#">Quên mật khẩu?</a></h6>
 				<div class="clearfix"></div>
-				<input type="submit" value="Đăng nhập" name="login">
-		</form>
+                <input type="submit" value="Đăng nhập" name="login">
+            <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+            <br/>
+            @if($errors->has('g-recaptcha-response'))
+                <span class="invalid-feedback" style="display:block">
+                    <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+                </span>
+            @endif
+
+        </form>
+        <a href="{{ URL('/login-facebook') }}">Login Facebook</a>
+        <a href="{{ URL('/login-google') }}">Login Google</a>
 		{{-- <p>Don't Have an Account ?<a href="registration.html">Create an account</a></p> --}}
 </div>
 </div>
@@ -50,5 +65,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{asset('public/backend/js/flot-chart/excanvas.min.js')}}"></script><![endif]-->
 <script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

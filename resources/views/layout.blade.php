@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-----------------------Seo------------------------>
     <meta name="description" content="">
-    <meta name="description" content="{{$meta_desc}}">
-    <meta name="keywords" content="{{$meta_keywords}}"/>
-    <link  rel="canonical" href="{{ $url_canonical }}" />
+    {{-- <meta name="description" content="{{$meta_desc}}"> --}}
+    {{-- <meta name="keywords" content="{{$meta_keywords}}"/> --}}
+    {{-- <link  rel="canonical" href="{{ $url_canonical }}" /> --}}
     <meta name="author" content="">
     <link  rel="icon" type="image/x-icon" href="" />
 
     {{-- <meta property="og:image" content="{{$image_og}}" /> --}}
     <meta property="og:site_name" content="http://localhost:8888/shopbanhanglaravel" />
-    <meta property="og:description" content="{{$meta_desc}}" />
-    <meta property="og:title" content="{{$meta_title}}" />
-    <meta property="og:url" content="{{$url_canonical}}" />
+    {{-- <meta property="og:description" content="{{$meta_desc}}" /> --}}
+    {{-- <meta property="og:title" content="{{$meta_title}}" /> --}}
+    {{-- <meta property="og:url" content="{{$url_canonical}}" /> --}}
     <meta property="og:type" content="website" />
 
     <!--------//---------------Seo------------------------>
-    <title>{{ $meta_title }}</title>
+    {{-- <title>{{ $meta_title }}</title> --}}
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -453,6 +453,7 @@
 	<script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0" nonce="5oBnjHri"></script>
